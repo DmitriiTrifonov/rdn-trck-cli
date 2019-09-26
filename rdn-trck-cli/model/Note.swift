@@ -12,14 +12,21 @@ import Foundation
 struct Note {
     let id: String
     let date: Date
-    let pages: String
-    let text: String
+    var firstPage: Int
+    var lastPage: Int
+    let pages: Int
+    let text: String?
     
     init(id: String = UUID().uuidString,
-         date: Date = Date(),pages: String,
-         text: String){
+         date: Date = Date(),
+         firstPage:Int = 0, // TODO
+         lastPage: Int = 0, // TODO
+         pages: Int,
+         text: String? = nil){
         self.id = id
         self.date = date
+        self.firstPage = firstPage
+        self.lastPage = lastPage
         self.pages = pages
         self.text = text
     }

@@ -12,15 +12,21 @@ var book = Book(title: "The life of Sklaga", authors: ["Kichan", "Vityan"], tota
 
 print(book)
 
-book.updatePage(newCurrentPage: 3)
+book.addNote(date: Date(), pages: 21, text: "Hello, Bookreader!")
 
 print(book)
 
-book.updatePage(newCurrentPage: 63)
+book.addNote(date: Date(), pages: 150, text: "Sklaga is good")
 
 print(book)
 
-book.updatePage(newCurrentPage: 150)
+if let key = book.notes.keys.first {
+    print(key)
+    book.removeNote(withId: key)
+}
 
 print(book)
+
+
+
 
