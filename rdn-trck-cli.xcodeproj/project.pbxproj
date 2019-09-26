@@ -29,6 +29,8 @@
 		F1A726E3233D35E8006EBEAB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F1A726EB233D365A006EBEAB /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		F1A726ED233D3664006EBEAB /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		F1A726EF233D3BA4006EBEAB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F1A726F0233D3C5B006EBEAB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,8 @@
 		F1A726D7233D35E8006EBEAB = {
 			isa = PBXGroup;
 			children = (
+				F1A726F0233D3C5B006EBEAB /* LICENSE */,
+				F1A726EF233D3BA4006EBEAB /* README.md */,
 				F1A726E2233D35E8006EBEAB /* rdn-trck-cli */,
 				F1A726E1233D35E8006EBEAB /* Products */,
 			);
