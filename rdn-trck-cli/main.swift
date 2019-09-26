@@ -8,5 +8,19 @@
 
 import Foundation
 
-print("Hello, World!")
+var book = Book(title: "The life of Sklaga", authors: ["Kichan", "Vityan"], totalPages: 141)
+
+print(book)
+
+book.updatePage(newCurrentPage: 3)
+
+print(book)
+
+book.updatePage(newCurrentPage: 63)
+
+print(book)
+
+book.updatePage(newCurrentPage: 150)
+
+print(book)
 
