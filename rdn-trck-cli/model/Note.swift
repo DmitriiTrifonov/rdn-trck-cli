@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Note {
+struct Note : Codable {
     let id: String
     let date: Date
     var firstPage: Int

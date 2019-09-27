@@ -10,22 +10,20 @@ import Foundation
 
 var book = Book(title: "The life of Sklaga", authors: ["Kichan", "Vityan"], totalPages: 141)
 
-print(book)
 
 book.addNote(date: Date(), pages: 21, text: "Hello, Bookreader!")
 
-print(book)
 
 book.addNote(date: Date(), pages: 150, text: "Sklaga is good")
 
-print(book)
 
 if let key = book.notes.keys.first {
     print(key)
     book.removeNote(withId: key)
 }
 
-print(book)
+let bookString = String(bytes: book.encode(), encoding: .utf8)
+print(bookString ?? "Jopics")
 
 
 

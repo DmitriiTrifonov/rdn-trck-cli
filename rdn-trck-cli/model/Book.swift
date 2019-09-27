@@ -9,10 +9,15 @@
 import Foundation
 
 
-struct Book {
+struct Book: Codable {
     let id: String
     let title: String
     let authors: [String?]
+    let description: String?
+    let year: String?
+    let publisher: String?
+    let edition: Int?
+    let isbn: String?
     let totalPages: Int
     var currentPage: Int
     var notes: [String: Note]
@@ -20,6 +25,8 @@ struct Book {
     
     init(id: String = UUID().uuidString,
          title: String, authors: [String?],
+         description: String? = nil, year: String? = nil,
+         publisher: String? = nil, edition: Int? = nil, isbn: String? = nil,
          totalPages: Int, currentPage: Int = 1,
          notes: [String: Note] = [:]) {
         self.id = id
@@ -28,6 +35,11 @@ struct Book {
         self.totalPages = totalPages
         self.currentPage = currentPage
         self.notes = notes
+        self.description = description
+        self.year = year
+        self.publisher = publisher
+        self.edition = edition
+        self.isbn = isbn
     }
     
     private mutating func updatePage(newCurrentPage: Int) {
@@ -59,6 +71,10 @@ struct Book {
         notes[withId] = Note(id: withId, date: note.date, pages: note.pages, text: nil)
         }
         
+    }
+    
+    func encode() -> Data {
+        return try! JSONEncoder().encode(self)
     }
     
 }
