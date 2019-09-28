@@ -73,8 +73,13 @@ struct Book: Codable {
         
     }
     
-    func encode() -> Data {
-        return try! JSONEncoder().encode(self)
-    }
+//    func encode() -> Data {
+//        return try! JSONEncoder().encode(self)
+//    }
+//
+//    static func decode(json: Data) -> Book {
+//        let decoder = JSONDecoder()
+//        return try! decoder.decode(Book.self, from: json)
+//    }
     
 }

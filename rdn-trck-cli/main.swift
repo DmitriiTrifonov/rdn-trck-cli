@@ -8,23 +8,45 @@
 
 import Foundation
 
-var book = Book(title: "The life of Sklaga", authors: ["Kichan", "Vityan"], totalPages: 141)
-
-
-book.addNote(date: Date(), pages: 21, text: "Hello, Bookreader!")
-
-
-book.addNote(date: Date(), pages: 150, text: "Sklaga is good")
-
-
-if let key = book.notes.keys.first {
-    print(key)
-    book.removeNote(withId: key)
+func printBookTilles(books: [Book?]) {
+    var c = 1
+    for book in books {
+        if let uBook = book {
+            let authors = uBook.authors 
+            print("\(c) -- \(uBook.title) by \(authors)")
+            c += 1
+        }
+    }
 }
 
-let bookString = String(bytes: book.encode(), encoding: .utf8)
-print(bookString ?? "Jopics")
+var bookshelf = Bookshelf()
 
+let book1 =  Book(title: "The life of Sklaga", authors: ["Kichan", "Vityan"], totalPages: 141)
 
+let book2 = Book(title: "My Life", authors: ["Dmitrii Trifonov"], totalPages: 27)
+
+let book3 = Book(title: "My Another Life", authors: ["Dmitrii Trifonov"], totalPages: 28)
+
+bookshelf.add(with: book1)
+
+bookshelf.add(with: book2)
+
+bookshelf.add(with: book3)
+
+print(bookshelf.books.count)
+
+printBookTilles(books: bookshelf.books)
+
+bookshelf.remove(with: bookshelf.books.first(where: { (b) -> Bool in
+    b?.title == "My Life"
+}) as! Book)
+
+print(bookshelf.books.count)
+
+bookshelf.remove(with: book3)
+
+print(bookshelf.books.count)
+
+print(bookshelf.books[0]!)
 
 
