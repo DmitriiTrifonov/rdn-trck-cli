@@ -8,19 +8,33 @@
 
 import Foundation
 
-var book = Book(title: "The life of Sklaga", authors: ["Kichan", "Vityan"], totalPages: 141)
+var bkshlf = Bookshelf()
 
-print(book)
+if let data = FileUtil.loadFile() {
+    bkshlf = Bookshelf.decode(json: data)
+}
 
-book.updatePage(newCurrentPage: 3)
 
-print(book)
+print("Welcome to rdn trck cli")
 
-book.updatePage(newCurrentPage: 63)
+print(bkshlf)
 
-print(book)
+//let book1 = Book(title: "Kotlin в действии", authors: ["Дмитрий Жемеров", "Светлана Исакова"], totalPages: 402)
+//
+//bkshlf.add(with: book1)
+//
+//let book2 = Book(title: "The C Programming Language", authors: ["Brian W. Kernighan", "Dennis M. Ritchie"], totalPages: 288)
+//
+//bkshlf.add(with: book2)
 
-book.updatePage(newCurrentPage: 150)
+print(bkshlf.books)
 
-print(book)
+//let data = bkshlf.encode()
+//
+//FileUtil.saveFile(json: data)
+
+
+
+
+
 
