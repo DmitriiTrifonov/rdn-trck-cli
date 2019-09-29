@@ -20,7 +20,7 @@ struct Book: Codable {
     let isbn: String?
     let totalPages: Int
     var currentPage: Int
-    var notes: [String: Note]
+    var activities: [RdnActivity]
     
     
     init(id: String = UUID().uuidString,
@@ -28,13 +28,13 @@ struct Book: Codable {
          description: String? = nil, year: String? = nil,
          publisher: String? = nil, edition: Int? = nil, isbn: String? = nil,
          totalPages: Int, currentPage: Int = 1,
-         notes: [String: Note] = [:]) {
+         acts: [RdnActivity] = []) {
         self.id = id
         self.title = title
         self.authors = authors
         self.totalPages = totalPages
         self.currentPage = currentPage
-        self.notes = notes
+        self.activities = acts
         self.description = description
         self.year = year
         self.publisher = publisher
@@ -42,44 +42,20 @@ struct Book: Codable {
         self.isbn = isbn
     }
     
-    private mutating func updatePage(newCurrentPage: Int) {
-        currentPage = newCurrentPage > self.totalPages ? self.totalPages : newCurrentPage
-    }
-    
-    mutating func addNote(date: Date = Date(),pages: Int,
-                          text: String? = nil) {
-        let realPages = pages > totalPages ? pages - currentPage : pages
-        let note = Note(date: date, pages: realPages, text: text) // Add normal init
-        notes[note.id] = note
-        updatePage(newCurrentPage: self.currentPage + pages)
-    }
-    
-    mutating func removeNote(withId: String) {
-        /*
-        
-         TODO
-         
-         If hash map contains only one pair then current page should revert to 1
-         If hash map value has the biggest current page value then the current page should be currentPage - value.pages and the pair should be removed
-         If hash map value has not the biggest current page value then the current page should be the same as before, but pages to the next bigger stop page value Note
- 
-        */
-        
-        
-        // Replace this with changing values of the nearest Notes
-        if let note = notes[withId] {
-        notes[withId] = Note(id: withId, date: note.date, pages: note.pages, text: nil)
+    mutating func updateCurrent(page: Int) {
+        if (page > 0) {
+            currentPage = page > totalPages ? totalPages : page
         }
-        
     }
     
-//    func encode() -> Data {
-//        return try! JSONEncoder().encode(self)
-//    }
-//
-//    static func decode(json: Data) -> Book {
-//        let decoder = JSONDecoder()
-//        return try! decoder.decode(Book.self, from: json)
-//    }
+    mutating func add(activity: RdnActivity) {
+        activities.append(activity)
+    }
+    
+    mutating func remove(activity: RdnActivity) {
+        activities.removeAll { (a) -> Bool in
+            a.id == activity.id
+        }
+    }
     
 }

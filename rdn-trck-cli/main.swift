@@ -8,45 +8,33 @@
 
 import Foundation
 
-func printBookTilles(books: [Book?]) {
-    var c = 1
-    for book in books {
-        if let uBook = book {
-            let authors = uBook.authors 
-            print("\(c) -- \(uBook.title) by \(authors)")
-            c += 1
-        }
-    }
+var bkshlf = Bookshelf()
+
+if let data = FileUtil.loadFile() {
+    bkshlf = Bookshelf.decode(json: data)
 }
 
-var bookshelf = Bookshelf()
 
-let book1 =  Book(title: "The life of Sklaga", authors: ["Kichan", "Vityan"], totalPages: 141)
+print("Welcome to rdn trck cli")
 
-let book2 = Book(title: "My Life", authors: ["Dmitrii Trifonov"], totalPages: 27)
+print(bkshlf)
 
-let book3 = Book(title: "My Another Life", authors: ["Dmitrii Trifonov"], totalPages: 28)
+//let book1 = Book(title: "Kotlin в действии", authors: ["Дмитрий Жемеров", "Светлана Исакова"], totalPages: 402)
+//
+//bkshlf.add(with: book1)
+//
+//let book2 = Book(title: "The C Programming Language", authors: ["Brian W. Kernighan", "Dennis M. Ritchie"], totalPages: 288)
+//
+//bkshlf.add(with: book2)
 
-bookshelf.add(with: book1)
+print(bkshlf.books)
 
-bookshelf.add(with: book2)
+//let data = bkshlf.encode()
+//
+//FileUtil.saveFile(json: data)
 
-bookshelf.add(with: book3)
 
-print(bookshelf.books.count)
 
-printBookTilles(books: bookshelf.books)
 
-bookshelf.remove(with: bookshelf.books.first(where: { (b) -> Bool in
-    b?.title == "My Life"
-}) as! Book)
-
-print(bookshelf.books.count)
-
-bookshelf.remove(with: book3)
-
-print(bookshelf.books.count)
-
-print(bookshelf.books[0]!)
 
 

@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		F1A726E4233D35E8006EBEAB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726E3233D35E8006EBEAB /* main.swift */; };
 		F1A726EC233D365A006EBEAB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726EB233D365A006EBEAB /* Book.swift */; };
-		F1A726EE233D3664006EBEAB /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726ED233D3664006EBEAB /* Note.swift */; };
+		F1A726EE233D3664006EBEAB /* RdnActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726ED233D3664006EBEAB /* RdnActivity.swift */; };
 		F1A726F2233E9561006EBEAB /* Bookshelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726F1233E9561006EBEAB /* Bookshelf.swift */; };
+		F1A726F5234147A1006EBEAB /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726F4234147A1006EBEAB /* FileUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,10 +30,11 @@
 		F1A726E0233D35E8006EBEAB /* rdn-trck-cli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "rdn-trck-cli"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A726E3233D35E8006EBEAB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F1A726EB233D365A006EBEAB /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		F1A726ED233D3664006EBEAB /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		F1A726ED233D3664006EBEAB /* RdnActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdnActivity.swift; sourceTree = "<group>"; };
 		F1A726EF233D3BA4006EBEAB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F1A726F0233D3C5B006EBEAB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F1A726F1233E9561006EBEAB /* Bookshelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookshelf.swift; sourceTree = "<group>"; };
+		F1A726F4234147A1006EBEAB /* FileUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		F1A726E2233D35E8006EBEAB /* rdn-trck-cli */ = {
 			isa = PBXGroup;
 			children = (
+				F1A726F32341474E006EBEAB /* tools */,
 				F1A726EA233D3612006EBEAB /* model */,
 				F1A726E3233D35E8006EBEAB /* main.swift */,
 			);
@@ -76,11 +79,19 @@
 		F1A726EA233D3612006EBEAB /* model */ = {
 			isa = PBXGroup;
 			children = (
-				F1A726ED233D3664006EBEAB /* Note.swift */,
+				F1A726ED233D3664006EBEAB /* RdnActivity.swift */,
 				F1A726EB233D365A006EBEAB /* Book.swift */,
 				F1A726F1233E9561006EBEAB /* Bookshelf.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		F1A726F32341474E006EBEAB /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				F1A726F4234147A1006EBEAB /* FileUtil.swift */,
+			);
+			path = tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,8 +153,9 @@
 			files = (
 				F1A726EC233D365A006EBEAB /* Book.swift in Sources */,
 				F1A726E4233D35E8006EBEAB /* main.swift in Sources */,
-				F1A726EE233D3664006EBEAB /* Note.swift in Sources */,
+				F1A726EE233D3664006EBEAB /* RdnActivity.swift in Sources */,
 				F1A726F2233E9561006EBEAB /* Bookshelf.swift in Sources */,
+				F1A726F5234147A1006EBEAB /* FileUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
