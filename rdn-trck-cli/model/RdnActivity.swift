@@ -22,8 +22,8 @@ struct RdnActivity : Codable {
          date: Date = Date(),
          firstPage:Int,
          pages: Int,
-         title: String? = nil,
-         text: String? = nil){
+         title: String?,
+         text: String?){
         self.id = id
         self.date = date
         self.firstPage = firstPage
@@ -37,8 +37,8 @@ struct RdnActivity : Codable {
          date: Date = Date(),
         firstPage:Int,
         lastPage: Int,
-        title: String? = nil,
-        text: String? = nil){
+        title: String?,
+        text: String?){
         self.id = id
         self.date = date
         self.firstPage = firstPage

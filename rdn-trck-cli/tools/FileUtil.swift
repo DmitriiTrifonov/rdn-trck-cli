@@ -22,16 +22,30 @@ class FileUtil {
     }
     
     static func saveFile(json: Data) {
-        let path = "/Library/Caches/com.mitya1234.rnd-trck-cli/bkshlf.json"
-        let fm = FileManager()
-        let fh = FileHandle(forReadingAtPath: path)
-        if (fm.fileExists(atPath: path)) {
-            fh?.write(json)
-            print("has file")
+        let fileManager = FileManager.default
+        let filename = "bkshlf.json"
+        let appFolder = "com.mitya1234.rnd-trck-cli"
+        
+        let cachesURL = try! fileManager.url(for: .cachesDirectory, in: .localDomainMask, appropriateFor: nil, create: true)
+        //print(cachesURL.path)
+        let folderURL = cachesURL.appendingPathComponent(appFolder, isDirectory: true)
+        //print(folderURL.path)
+        let fileURL = folderURL.appendingPathComponent(filename, isDirectory: false)
+        //print(fileURL.path)
+        var isDir : ObjCBool = false
+        if (fileManager.fileExists(atPath: folderURL.path, isDirectory: &isDir)) {
+            if (isDir.boolValue) {
+                if (fileManager.fileExists(atPath: fileURL.path)) {
+                    try? json.write(to: fileURL)
+                } else {
+                    fileManager.createFile(atPath: fileURL.path, contents: json, attributes: nil)
+                }
+            }
         } else {
-            try? fm.createDirectory(atPath: "/Library/Caches/com.mitya1234.rnd-trck-cli/", withIntermediateDirectories: false, attributes: nil)
-            fm.createFile(atPath: path, contents: json, attributes: nil)
-            print("no file")
+            try? fileManager.createDirectory(atPath: folderURL.path, withIntermediateDirectories: false, attributes: nil)
+            fileManager.createFile(atPath: fileURL.path, contents: json, attributes: nil)
         }
+        
+        
     }
 }
