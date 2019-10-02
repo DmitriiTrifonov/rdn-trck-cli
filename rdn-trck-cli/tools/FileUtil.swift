@@ -2,7 +2,7 @@
 //  FileUtil.swift
 //  rdn-trck-cli
 //
-//  Created by Dmitriy Trifonov on 29/09/2019.
+//  Created by Dmitrii Trifonov on 29/09/2019.
 //  Copyright © 2019 mitya1234. All rights reserved.
 //
 
