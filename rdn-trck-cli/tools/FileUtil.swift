@@ -3,7 +3,7 @@
 //  rdn-trck-cli
 //
 //  Created by Dmitrii Trifonov on 29/09/2019.
-//  Copyright © 2019 mitya1234. All rights reserved.
+//  Copyright © 2019 Dmitrii Trifonov. All rights reserved.
 //
 
 import Foundation
