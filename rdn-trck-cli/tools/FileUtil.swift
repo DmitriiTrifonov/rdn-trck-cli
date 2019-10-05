@@ -18,18 +18,20 @@ class FileUtil {
     static let fileURL = folderURL.appendingPathComponent(filename, isDirectory: false)
     
     static func loadFile() -> Data? {
+        var output:Data? = nil
         var isDir : ObjCBool = false
         if (fileManager.fileExists(atPath: folderURL.path, isDirectory: &isDir)) {
             if (isDir.boolValue) {
                 if (fileManager.fileExists(atPath: fileURL.path)) {
-                    return Data(contentsOf: fileURL)
-                } else {
-                    return nil
+                    do {
+                        output = try Data(contentsOf: fileURL)
+                    } catch {
+                        output = nil
+                    }
                 }
             }
-        } else {
-            return nil
         }
+        return output
     }
     
     static func saveFile(json: Data) {

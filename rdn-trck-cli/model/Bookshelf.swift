@@ -34,5 +34,13 @@ class Bookshelf : Codable {
         return try! decoder.decode(Bookshelf.self, from: json)
     }
     
+    func printBooksUpwards() {
+        print("The bookshelf has got this books:")
+        for (index, element) in books.enumerated() {
+            print("\(index+1) -- \(element?.title ?? "nil")")
+        }
+        print()
+    }
+    
     
 }

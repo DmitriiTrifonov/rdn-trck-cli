@@ -12,7 +12,7 @@ import Foundation
 struct Book: Codable {
     let id: String
     let title: String
-    let authors: [String?]
+    let authors: [String]?
     let description: String?
     let year: String?
     let publisher: String?
@@ -24,7 +24,7 @@ struct Book: Codable {
     
     
     init(id: String = UUID().uuidString,
-         title: String, authors: [String?],
+         title: String, authors: [String]?,
          description: String? = nil, year: String? = nil,
          publisher: String? = nil, edition: Int? = nil, isbn: String? = nil,
          totalPages: Int, currentPage: Int = 1,
@@ -52,10 +52,39 @@ struct Book: Codable {
         activities.append(activity)
     }
     
-    mutating func remove(activity: RdnActivity) {
+    mutating func remove(activity: RdnActivity?) {
         activities.removeAll { (a) -> Bool in
-            a.id == activity.id
+            a.id == activity?.id
         }
+    }
+    
+    static func createBookCLI() -> Book {
+        print("Enter the title:")
+        let bookTitle = readLine() ?? "The Book Title"
+        print("Enter the authors separated by comma and space [Example: John Appleseed, John Smith]:")
+        let bookAuthors = readLine()?.components(separatedBy: ", ") // TODO Another split mechanism
+        print("Enter the book description:")
+        let bookDesc = readLine()
+        print("Enter the book release year:")
+        let bookYear = readLine()
+        print("Enter the book publisher:")
+        let bookPubl = readLine()
+        print("Enter the book edition:")
+        let bookEd = readLine()
+        print("Enter the book ISBN:")
+        let bookISBN = readLine()
+        print("Enter the book total number of pages:")
+        let bookTotalPages = Int(readLine() ?? "0")
+        let book = Book(title: bookTitle,
+                        authors: bookAuthors,
+                        description: bookDesc == "" ? nil : bookDesc,
+                        year: bookYear == "" ? nil : bookYear,
+                        publisher: bookPubl == "" ? nil : bookPubl,
+                        edition: bookEd == "" ? nil : Int(bookEd ?? "0"),
+                        isbn: bookISBN == "" ? nil : bookISBN,
+                        totalPages: bookTotalPages ?? 1)
+        print("Created a new book \(book.title) and id \(book.id)")
+        return book
     }
     
 }
