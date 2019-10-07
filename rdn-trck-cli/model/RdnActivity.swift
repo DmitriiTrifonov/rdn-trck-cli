@@ -17,6 +17,7 @@ struct RdnActivity : Codable {
     let pages: Int
     let title: String?
     let text: String?
+    let bookId: String? = nil
     
     init(id: String = UUID().uuidString,
          date: Date = Date(),
