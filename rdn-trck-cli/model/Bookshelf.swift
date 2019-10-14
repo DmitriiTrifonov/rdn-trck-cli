@@ -42,5 +42,16 @@ class Bookshelf : Codable {
         print()
     }
     
+    func findBookBy(id: String) -> Book? {
+        try? return books.first(where: { (b) -> Bool in 
+                    b?.id == id
+                    })
+    }
+
+    func findBookBy(title: String) -> Book? {
+        try? return books.first(where: { (b) -> Bool in 
+                    b?.title == title
+                    })
+    }
     
 }
