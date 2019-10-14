@@ -20,15 +20,13 @@ struct Book: Codable {
     let isbn: String?
     let totalPages: Int
     var currentPage: Int
-    var activities: [RdnActivity]
     
     
     init(id: String = UUID().uuidString,
          title: String, authors: [String]?,
          description: String? = nil, year: String? = nil,
          publisher: String? = nil, edition: Int? = nil, isbn: String? = nil,
-         totalPages: Int, currentPage: Int = 1,
-         acts: [RdnActivity] = []) {
+         totalPages: Int, currentPage: Int = 1) {
         self.id = id
         self.title = title
         self.authors = authors
