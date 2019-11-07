@@ -9,19 +9,19 @@
 import Foundation
 
 class Bookshelf : Codable {
-    var books: [Book?]
+    var books: [Book]
     
     init() {
         self.books = []
     }
     
-    func add(with title: Book?) {
+    func add(with title: Book) {
         books.append(title)
     }
     
     func remove(with title: Book) {
         books.removeAll { (b) -> Bool in
-            b?.id == title.id
+            b.id == title.id
         }
     }
     
@@ -37,21 +37,9 @@ class Bookshelf : Codable {
     func printBooksUpwards() {
         print("The bookshelf has got this books:")
         for (index, element) in books.enumerated() {
-            print("\(index+1) -- \(element?.title ?? "nil")")
+            print("\(index+1) -- \(element.title )")
         }
         print()
-    }
-    
-    func findBookBy(id: String) -> Book? {
-        try? return books.first(where: { (b) -> Bool in 
-                    b?.id == id
-                    })
-    }
-
-    func findBookBy(title: String) -> Book? {
-        try? return books.first(where: { (b) -> Bool in 
-                    b?.title == title
-                    })
     }
     
 }

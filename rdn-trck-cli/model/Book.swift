@@ -32,7 +32,6 @@ struct Book: Codable {
         self.authors = authors
         self.totalPages = totalPages
         self.currentPage = currentPage
-        self.activities = acts
         self.description = description
         self.year = year
         self.publisher = publisher
@@ -46,15 +45,6 @@ struct Book: Codable {
         }
     }
     
-    mutating func add(activity: RdnActivity) {
-        activities.append(activity)
-    }
-    
-    mutating func remove(activity: RdnActivity?) {
-        activities.removeAll { (a) -> Bool in
-            a.id == activity?.id
-        }
-    }
     
     static func createBookCLI() -> Book {
         print("Enter the title:")
@@ -85,4 +75,15 @@ struct Book: Codable {
         return book
     }
     
+}
+
+extension Array where Element == Book {
+    
+    func first(by id: String) -> Book? {
+        return self.first(where: { $0.id == id })
+    }
+    
+    func findBookBy(title: String) -> Book? {
+        return self.first(where: { $0.title == title })
+    }
 }
