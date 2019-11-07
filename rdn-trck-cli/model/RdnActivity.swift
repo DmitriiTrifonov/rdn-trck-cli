@@ -51,3 +51,12 @@ struct RdnActivity : Codable {
     
     
 }
+
+extension RdnActivity : ComandLineView {
+    typealias T = RdnActivity
+    static func createCLI<T>() -> T {
+        // TODO – make an cli input
+        let activity = RdnActivity(id: "", date: Date(), firstPage: 1, lastPage: 2, title: "", text: "")
+        return activity as! T
+    }
+}

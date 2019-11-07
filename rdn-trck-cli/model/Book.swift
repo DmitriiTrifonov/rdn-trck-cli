@@ -45,8 +45,12 @@ struct Book: Codable {
         }
     }
     
-    
-    static func createBookCLI() -> Book {
+}
+
+
+extension Book : ComandLineView {
+    typealias T = Book
+    static func createCLI<T>() -> T {
         print("Enter the title:")
         let bookTitle = readLine() ?? "The Book Title"
         print("Enter the authors separated by comma and space [Example: John Appleseed, John Smith]:")
@@ -72,10 +76,11 @@ struct Book: Codable {
                         isbn: bookISBN == "" ? nil : bookISBN,
                         totalPages: bookTotalPages ?? 1)
         print("Created a new book \(book.title) and id \(book.id)")
-        return book
+        return book as! T
     }
     
 }
+
 
 extension Array where Element == Book {
     
