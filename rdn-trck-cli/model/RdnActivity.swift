@@ -17,14 +17,15 @@ struct RdnActivity : Codable {
     let pages: Int
     let title: String?
     let text: String?
-    let bookId: String? = nil
+    let bookId: String
     
     init(id: String = UUID().uuidString,
          date: Date = Date(),
          firstPage:Int,
          pages: Int,
          title: String?,
-         text: String?){
+         text: String?,
+        bookId: String){
         self.id = id
         self.date = date
         self.firstPage = firstPage
@@ -32,6 +33,7 @@ struct RdnActivity : Codable {
         self.pages = pages
         self.title = title
         self.text = text
+        self.bookId = bookId
     }
     
     init(id: String = UUID().uuidString,
@@ -39,7 +41,8 @@ struct RdnActivity : Codable {
         firstPage:Int,
         lastPage: Int,
         title: String?,
-        text: String?){
+        text: String?,
+        bookId: String){
         self.id = id
         self.date = date
         self.firstPage = firstPage
@@ -47,12 +50,13 @@ struct RdnActivity : Codable {
         self.pages = lastPage - firstPage
         self.title = title
         self.text = text
+        self.bookId = bookId
     }
     
     
 }
 
-extension RdnActivity : ComandLineView {
+extension RdnActivity : CommandLineView {
     typealias T = RdnActivity
     static func createCLI<T>() -> T {
         // TODO – make an cli input
