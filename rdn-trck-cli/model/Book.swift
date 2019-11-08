@@ -48,7 +48,7 @@ struct Book: Codable {
 }
 
 
-extension Book : ComandLineView {
+extension Book : CommandLineView {
     typealias T = Book
     static func createCLI<T>() -> T {
         print("Enter the title:")
