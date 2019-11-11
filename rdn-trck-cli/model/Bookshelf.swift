@@ -10,16 +10,22 @@ import Foundation
 
 class Bookshelf : Codable {
     var books: [Book]
+    var activities: [RdnActivity]
     
     init() {
         self.books = []
+        self.activities = []
     }
     
-    func add(with title: Book) {
-        books.append(title)
+    func add(_ book: Book) {
+        books.append(book)
     }
     
-    func remove(with title: Book) {
+    func add(_ reading: RdnActivity) {
+        activities.append(reading)
+    }
+    
+    func remove(_ book: Book) {
         books.removeAll { (b) -> Bool in
             b.id == title.id
         }
@@ -35,6 +41,7 @@ class Bookshelf : Codable {
     }
     
     func printBooksUpwards() {
+        // TODO -- Change to lambda if possible
         print("The bookshelf has got this books:")
         for (index, element) in books.enumerated() {
             print("\(index+1) -- \(element.title )")
