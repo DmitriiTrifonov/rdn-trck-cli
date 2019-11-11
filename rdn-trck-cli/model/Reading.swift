@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct RdnActivity : Codable {
+struct Reading : Codable {
     let id: String
     let date: Date
     var firstPage: Int
@@ -56,11 +56,11 @@ struct RdnActivity : Codable {
     
 }
 
-extension RdnActivity : CommandLineView {
-    typealias T = RdnActivity
+extension Reading : CommandLineView {
+    typealias T = Reading
     static func createCLI<T>() -> T {
         // TODO – make an cli input
-        let activity = RdnActivity(id: "", date: Date(), firstPage: 1, lastPage: 2, title: "", text: "")
+        let activity = Reading(id: "", date: Date(), firstPage: 1, lastPage: 2, title: "", text: "", bookId: "fddfdf")
         return activity as! T
     }
 }

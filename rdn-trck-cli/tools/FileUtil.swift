@@ -11,22 +11,27 @@ import Foundation
 
 class FileUtil {
     static let fileManager = FileManager.default
-    static let filename = "bkshlf.json"
+    static var filename = ""
     static let appFolder = "com.mitya1234.rnd-trck-cli"
     static let cachesURL = try! fileManager.url(for: .cachesDirectory, in: .localDomainMask, appropriateFor: nil, create: true)
     static let folderURL = cachesURL.appendingPathComponent(appFolder, isDirectory: true)
-    static let fileURL = folderURL.appendingPathComponent(filename, isDirectory: false)
+    static var fileURL = folderURL.appendingPathComponent(filename, isDirectory: false)
     
     static func loadFile() -> Data? {
+        print("case00")
         var output:Data? = nil
         var isDir : ObjCBool = false
         if (fileManager.fileExists(atPath: folderURL.path, isDirectory: &isDir)) {
+            print("case01")
             if (isDir.boolValue) {
+                print("case02")
                 if (fileManager.fileExists(atPath: fileURL.path)) {
                     do {
                         output = try Data(contentsOf: fileURL)
+                        print("case03")
                     } catch {
                         output = nil
+                        print("case04")
                     }
                 }
             }

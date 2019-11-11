@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		F1A726E4233D35E8006EBEAB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726E3233D35E8006EBEAB /* main.swift */; };
 		F1A726EC233D365A006EBEAB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726EB233D365A006EBEAB /* Book.swift */; };
-		F1A726EE233D3664006EBEAB /* RdnActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726ED233D3664006EBEAB /* RdnActivity.swift */; };
+		F1A726EE233D3664006EBEAB /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726ED233D3664006EBEAB /* Reading.swift */; };
 		F1A726F2233E9561006EBEAB /* Bookshelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726F1233E9561006EBEAB /* Bookshelf.swift */; };
 		F1A726F5234147A1006EBEAB /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A726F4234147A1006EBEAB /* FileUtil.swift */; };
+		F1BA324B2375F09400486CDB /* CommandLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA324A2375F09400486CDB /* CommandLineView.swift */; };
+		F1BA324D2379EE3E00486CDB /* ReadingBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BA324C2379EE3E00486CDB /* ReadingBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,11 +32,13 @@
 		F1A726E0233D35E8006EBEAB /* rdn-trck-cli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "rdn-trck-cli"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A726E3233D35E8006EBEAB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		F1A726EB233D365A006EBEAB /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		F1A726ED233D3664006EBEAB /* RdnActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RdnActivity.swift; sourceTree = "<group>"; };
+		F1A726ED233D3664006EBEAB /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		F1A726EF233D3BA4006EBEAB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F1A726F0233D3C5B006EBEAB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F1A726F1233E9561006EBEAB /* Bookshelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookshelf.swift; sourceTree = "<group>"; };
 		F1A726F4234147A1006EBEAB /* FileUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
+		F1BA324A2375F09400486CDB /* CommandLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandLineView.swift; sourceTree = "<group>"; };
+		F1BA324C2379EE3E00486CDB /* ReadingBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +83,11 @@
 		F1A726EA233D3612006EBEAB /* model */ = {
 			isa = PBXGroup;
 			children = (
-				F1A726ED233D3664006EBEAB /* RdnActivity.swift */,
+				F1BA324A2375F09400486CDB /* CommandLineView.swift */,
+				F1A726ED233D3664006EBEAB /* Reading.swift */,
 				F1A726EB233D365A006EBEAB /* Book.swift */,
 				F1A726F1233E9561006EBEAB /* Bookshelf.swift */,
+				F1BA324C2379EE3E00486CDB /* ReadingBoard.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -126,6 +132,7 @@
 				TargetAttributes = {
 					F1A726DF233D35E8006EBEAB = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1110;
 					};
 				};
 			};
@@ -151,9 +158,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1BA324D2379EE3E00486CDB /* ReadingBoard.swift in Sources */,
 				F1A726EC233D365A006EBEAB /* Book.swift in Sources */,
 				F1A726E4233D35E8006EBEAB /* main.swift in Sources */,
-				F1A726EE233D3664006EBEAB /* RdnActivity.swift in Sources */,
+				F1BA324B2375F09400486CDB /* CommandLineView.swift in Sources */,
+				F1A726EE233D3664006EBEAB /* Reading.swift in Sources */,
 				F1A726F2233E9561006EBEAB /* Bookshelf.swift in Sources */,
 				F1A726F5234147A1006EBEAB /* FileUtil.swift in Sources */,
 			);
@@ -283,7 +292,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3N3SUWK76F;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -293,7 +302,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3N3SUWK76F;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
